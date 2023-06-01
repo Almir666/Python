@@ -793,16 +793,17 @@ from collections import defaultdict
 #        "магнитофон" : 10,
 #        "мяч" : 10,
 #        "мангал" : 20}
-# def collector_bag(data: dict) -> list:
-#     result = []
+# def collector_bag(data: dict) -> dict:
+#     result = {}
 #     volume_count = 0
-#     count = 0
-#     for i in data.values():
-#         if volume_count < BAG_VOLUME:
-#             result.append(data.items())
-#             volume_count += i
-#             count += 1
-#     return result
+#     item_list = data.keys()
+#     print(type(item_list))
+#     # for i in data.values():
+#     #     if volume_count < BAG_VOLUME:
+#     #         if volume_count + i < BAG_VOLUME:
+#     #             result[item_list[i]] = i
+#     #             volume_count += i
+#     # return result
 #
 # print(collector_bag(bag))
 
@@ -827,12 +828,13 @@ from collections import defaultdict
 #------------------------------------------------------
 
 # 2. Словарь
+
 # test = "12345"
-# def key_param(*,name) -> dict:
+# def key_param(**kwargs) -> dict:
 #     my_dict = {}
-#     my_dict["name"] = name
+#     my_dict[kwargs.values()] = str(kwargs)
 #     return my_dict
-# print(key_param(arg=test))
+# print(key_param(args=test))
 
 
 
@@ -916,3 +918,42 @@ from collections import defaultdict
 # print(bank.start(mode="up_balance", cash=cash_in_3))
 # print(bank.start(mode="give_money", cash=cash_out))
 # print(bank.save_list)
+
+
+# Домашнее задание 5
+
+# 1. Кортеж из 3 элементов
+# -----------------------------------------------------
+# path = "/Users/almir/PycharmProjects/pythonProject/test_file.md"
+#
+# def path_to_tuple(path: str) -> tuple:
+#     path_value = str(path.rpartition("/")[0])
+#     file_name = str(path.rpartition("/")[2]).partition(".")[0]
+#     extention = str(path.rpartition("/")[2])[str(path.rpartition("/")[2]).find(".") :]
+#     return (path_value, file_name, extension)
+#
+# print(path_to_tuple(path))
+
+
+# 2. Однострочник(Не понял как записать в одну строку)
+# -----------------------------------------------------
+# names = ["Иван", "Света", "Сергей"]
+# rate = [1000, 1500, 2000]
+# bonus = [10.25, 15.15, 8.05]
+# def bonus_at_work(names: list[str], rate: list[int], bonus: list[float]) -> dict[str : float]:
+#     result = {}
+#     if len(names) == len(rate) == len(bonus):
+#         for i in range(0, len(names)):
+#             result[names[i]] = float(rate[i] * bonus[i])
+#     return result
+# print(bonus_at_work(names,rate, bonus))
+
+# 3. Фибоначчи
+# -----------------------------------------------------
+# def fib(n):
+#     a, b = 0, 1
+#     for __ in range(n):
+#         yield a
+#         a, b = b, a + b
+#
+# print(list(fib(15)))
