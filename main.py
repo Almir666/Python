@@ -1,8 +1,11 @@
+import datetime
 from random import randint
 from math import pi
 import decimal
 from fractions import Fraction
 from collections import defaultdict
+from datetime import date
+from gues_number import gues_num
 
 
 # ЗАДАНИЕ 6
@@ -941,12 +944,9 @@ from collections import defaultdict
 # rate = [1000, 1500, 2000]
 # bonus = [10.25, 15.15, 8.05]
 # def bonus_at_work(names: list[str], rate: list[int], bonus: list[float]) -> dict[str : float]:
-#     result = {}
-#     if len(names) == len(rate) == len(bonus):
-#         for i in range(0, len(names)):
-#             result[names[i]] = float(rate[i] * bonus[i])
-#     return result
-# print(bonus_at_work(names,rate, bonus))
+#     return {i: j * k / 100 for i, j, k in zip(names, rate, bonus) if len(names) == len(rate) == len(bonus)}
+#
+# print(bonus_at_work(names, rate, bonus))
 
 # 3. Фибоначчи
 # -----------------------------------------------------
@@ -957,3 +957,23 @@ from collections import defaultdict
 #         a, b = b, a + b
 #
 # print(list(fib(15)))
+
+#
+# СЕМИНАР 6
+#---------------------------------------------------------
+#
+# Задание 2
+gues_num(1, 20, 5)
+
+# Домашнее задание 6
+
+# 1. Datetime
+#----------------------------------------------
+# date_now = datetime.date.today()
+# cur_date = input("Введите текущую дату в формате: год-месяц-число \n")
+#
+# if str(date_now) == cur_date:
+#     print(f"Все верно, это сегодняшняя дата")
+# else:
+#     print(f"Нет, сегодня: {date_now}")
+
