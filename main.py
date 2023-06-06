@@ -6,7 +6,8 @@ from fractions import Fraction
 from collections import defaultdict
 from datetime import date
 from gues_number import gues_num
-
+from sys import argv
+from quest_modul import quest
 
 # ЗАДАНИЕ 6
 # -------------------------------------------------------
@@ -963,7 +964,25 @@ from gues_number import gues_num
 #---------------------------------------------------------
 #
 # Задание 2
-gues_num(1, 20, 5)
+# gues_num(1, 20, 5)
+
+#---------------------------------------------------------
+# Задание 3
+# _, *arg = argv
+#
+# gues_num(*(int(i) for i in arg[1:]))
+
+#---------------------------------------------------------
+#
+# Задание 4
+# answer_count = quest("Зимой и летом одним цветом", ["елка", "ёлка", "Ёелка", "Елка", "Ель", "ель"])
+# print(f"Загадка отгадана за: {answer_count}")
+
+
+
+
+
+
 
 # Домашнее задание 6
 
