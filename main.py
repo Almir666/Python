@@ -1,5 +1,5 @@
 import datetime
-from random import randint
+from random import randint, uniform, choice
 from math import pi
 import decimal
 from fractions import Fraction
@@ -8,6 +8,10 @@ from datetime import date
 from gues_number import gues_num
 from sys import argv
 from quest_modul import quest
+from pathlib import Path
+from typing import TextIO
+import check_date
+from gen_files import generate_files
 
 # ЗАДАНИЕ 6
 # -------------------------------------------------------
@@ -978,9 +982,10 @@ from quest_modul import quest
 # answer_count = quest("Зимой и летом одним цветом", ["елка", "ёлка", "Ёелка", "Елка", "Ель", "ель"])
 # print(f"Загадка отгадана за: {answer_count}")
 
-
-
-
+#---------------------------------------------------------
+# Задание 5
+# date = "06.06.1666"
+# print(check_date.final_check(date))
 
 
 
@@ -988,11 +993,80 @@ from quest_modul import quest
 
 # 1. Datetime
 #----------------------------------------------
-# date_now = datetime.date.today()
-# cur_date = input("Введите текущую дату в формате: год-месяц-число \n")
+# check_date.final_check(*(str(argv)))
+
+
+#----------------------------------------------
+# 2. Chess
+
+
+
+
+# СЕМИНАР 7
+# ------------------------------
+# Задание 1.
+# MIN = -1000
+# MAX = 1000
+# def feel_numbers(count: int, file_name: str | Path):
+#     with open(file_name, "a", encoding= "utf-8") as f:
+#         for _ in range(count):
+#             f.write(f"{randint(MIN, MAX)} | {uniform(MIN,MAX)}\n")
+# feel_numbers(10, "test_file.md")
+
+
+# ------------------------------
+# Задание 2.
+# VOWELS = "aeyuoi"
+# CONSTAINS = "bcdfghjklmnpqrstvwxz"
+# MIN = 4
+# MAX = 7
+# def generation_name(count_names: int, file_name: str | Path) -> str:
+#     with open(file_name, "a", encoding= "utf-8") as f:
+#         for _ in range(count_names):
+#             rnd_string = "".join(choice(VOWELS) if i % 3 == 0 else choice(CONSTAINS) for i in range(randint(MIN, MAX)))
+#             f.write(f'{rnd_string.capitalize()}\n')
 #
-# if str(date_now) == cur_date:
-#     print(f"Все верно, это сегодняшняя дата")
-# else:
-#     print(f"Нет, сегодня: {date_now}")
+# generation_name(5, "test_file2.md")
+
+
+# ------------------------------
+# Задание 3.
+
+# def _read_or_begin(fd: TextIO) -> str:
+#     line = fd.readline()
+#     if not line:
+#         fd.seek(0)
+#         return _read_or_begin(fd)
+#     return line[:-1]
+# def sum_data(numbers: Path, words: Path, result: Path) -> None:
+#     with (
+#             open(numbers, "r", encoding= "utf-8") as f_num,
+#             open(words, "r", encoding= "utf-8") as f_word,
+#             open(result, "a", encoding= "utf-8") as res
+#
+#     ):
+#         len_numbers = sum(1 for _ in f_num)
+#         len_words = sum(1 for _ in f_word)
+#         for _ in range(max(len_numbers, len_words)):
+#             num = _read_or_begin(f_num)
+#             word = _read_or_begin(f_word)
+#             num_a, num_b = num.split(' | ')
+#             mult = int(num_a) * float(num_b)
+#             if mult < 0:
+#                 res.write(f"{word.lower()} {abs(mult)}\n")
+#             elif mult > 0:
+#                 res.write(f"{word.upper()} {round(mult)}\n")
+#
+# sum_data("test_file.md", "test_file2.md", "result_file.md")
+
+
+# ------------------------------
+# Задание 4.
+
+# generate_files("bin", 5, 10, 1024, 4096, 5)
+
+
+
+# Домашнее задание 7
+# ------------------------------
 
